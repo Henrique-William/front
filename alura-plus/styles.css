@@ -13,3 +13,13 @@ body {
     margin: 0px;
     padding: 0px;
 }
+
+.principal {
+    background-image: url('img/Background.png');
+}
+
+.container {
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
