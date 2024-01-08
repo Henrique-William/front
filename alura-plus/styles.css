@@ -160,5 +160,5 @@ body {
 .botao_secundario:hover {
     background-color: var(--branco-principal);
     color: var(--cor-de-fundo);
-    transition: ease-in 0.5s;
+    transition: ease-in 0.3s;
 }
