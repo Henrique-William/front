@@ -107,4 +107,13 @@
     .cabecalho__menu-hamburguer {
         display: none;
     }
+
+    .opcoes__botoes:checked ~ .lista-menu{
+        display: block;
+        width: auto;
+    }
+
+    .opcoes__botoes {
+        display: none;
+    }
 }
