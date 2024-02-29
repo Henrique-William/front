@@ -1,8 +1,9 @@
 <script lang="ts">
 import Banner from './components/Banner.vue';
+import ConteudoPrincipal from './components/ConteudoPrincipal.vue';
 
 export default {
-  components: { Banner }
+  components: { Banner, ConteudoPrincipal }
 }
 
 </script>
@@ -10,8 +11,7 @@ export default {
 <!-- template = HTML do site -->
 <template>
   <Banner />
-
-  <h1 class="titulo">texto do App.vue</h1>
+  <ConteudoPrincipal />
 </template>
 
 <!-- css do site -->
