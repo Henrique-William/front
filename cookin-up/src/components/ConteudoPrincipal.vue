@@ -13,7 +13,7 @@ export default {
       componentKey: 0,// Alterar esta chave para forçar a atualização do componente
       }
     },
-    components: { SelecionarIngredientes, SuaLista, MostrarReceitas},
+    // components: { SelecionarIngredientes, SuaLista, MostrarReceitas},
     methods: {
       adicionarIngrediente(ingrediente: string){
         this.ingredientes.push(ingrediente)
@@ -33,11 +33,11 @@ export default {
         <SuaLista :ingredientes="ingredientes"/>
 
         <KeepAlive incluede="SelecionarIngredientes" >
-          <SelecionarIngredientes v-if="conteudo === 'SelecionarIngredientes'"
-            @adicionar-ingrediente="adicionarIngrediente"
-            @remover-ingrediente="removerIngrediente"
-            @buscar-receitas="navegar('MostrarReceitas')"
-          />
+            <SelecionarIngredientes v-if="conteudo === 'SelecionarIngredientes'"
+              @adicionar-ingrediente="adicionarIngrediente"
+              @remover-ingrediente="removerIngrediente"
+              @buscar-receitas="navegar('MostrarReceitas')"
+            />
 
           <MostrarReceitas v-else-if="conteudo === 'MostrarReceitas'"
             :ingredientes="ingredientes"
@@ -76,8 +76,6 @@ export default {
   gap: 1rem 1.5rem;
   flex-wrap: wrap;
 }
-
-
 
 .lista-vazia {
   display: flex;
