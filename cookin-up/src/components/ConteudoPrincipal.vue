@@ -9,11 +9,10 @@ export default {
   data(){
     return{
       ingredientes: [] as string[],
-      conteudo: 'SelecionarIngredientes' as Pagina,
-      componentKey: 0,// Alterar esta chave para forçar a atualização do componente
+      conteudo: 'SelecionarIngredientes' as Pagina
       }
     },
-    // components: { SelecionarIngredientes, SuaLista, MostrarReceitas},
+    components: { SelecionarIngredientes, SuaLista, MostrarReceitas},
     methods: {
       adicionarIngrediente(ingrediente: string){
         this.ingredientes.push(ingrediente)
@@ -32,7 +31,7 @@ export default {
     <main class="conteudo-principal">
         <SuaLista :ingredientes="ingredientes"/>
 
-        <KeepAlive incluede="SelecionarIngredientes" >
+        <KeepAlive include="SelecionarIngredientes, MostrarReceitas" >
             <SelecionarIngredientes v-if="conteudo === 'SelecionarIngredientes'"
               @adicionar-ingrediente="adicionarIngrediente"
               @remover-ingrediente="removerIngrediente"
