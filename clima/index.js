@@ -7,7 +7,7 @@ const error404 = document.querySelector('.not-found');
 function ajustarAlturaContainer() {
     const container = document.querySelector('.container');
     if (window.matchMedia("(max-width: 625px)").matches) {
-        container.style.height = 'auto';
+        container.style.height = '690px';
     } else {
         container.style.height = '590px'; // Reverta para a altura padrão ou deixe vazio para o CSS controlar
     }
