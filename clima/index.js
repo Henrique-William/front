@@ -4,6 +4,15 @@ const weatherBox = document.querySelector('.weather-box');
 const weatherDetails = document.querySelector('.weather-details');
 const error404 = document.querySelector('.not-found');
 
+function ajustarAlturaContainer() {
+    const container = document.querySelector('.container');
+    if (window.matchMedia("(max-width: 625px)").matches) {
+        container.style.height = 'auto';
+    } else {
+        container.style.height = '590px'; // Reverta para a altura padrão ou deixe vazio para o CSS controlar
+    }
+}
+
 search.addEventListener('click', () => {
 
     const apiKey = '9bed276739dcf071712a23ca7b9d13ac';
@@ -68,8 +77,11 @@ search.addEventListener('click', () => {
             weatherDetails.style.display = '';
             weatherBox.classList.add('fadeIn');
             weatherDetails.classList.add('fadeIn');
-            container.style.height = '590px';
+            ajustarAlturaContainer();
+            window.addEventListener('resize', ajustarAlturaContainer);
 
         });
+
+
 
 });
