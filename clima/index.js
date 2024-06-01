@@ -1,11 +1,11 @@
 const container = document.querySelector('.container');
 const search = document.querySelector('.search-box button');
+const searchInput = document.querySelector('.search-box input');
 const weatherBox = document.querySelector('.weather-box');
 const weatherDetails = document.querySelector('.weather-details');
 const error404 = document.querySelector('.not-found');
 
 function ajustarAlturaContainer() {
-    const container = document.querySelector('.container');
     if (window.matchMedia("(max-width: 625px)").matches) {
         container.style.height = '690px';
     } else {
@@ -13,18 +13,15 @@ function ajustarAlturaContainer() {
     }
 }
 
-search.addEventListener('click', () => {
-
+function enterSearch() {
     const apiKey = '9bed276739dcf071712a23ca7b9d13ac';
-    const city = document.querySelector('.search-box input').value;
+    const city = searchInput.value;
 
-    if (city === '')
-        return;
+    if (city === '') return;
 
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&lang=pt_br`)
         .then(response => response.json())
         .then(json => {
-
             if (json.cod === '404') {
                 container.style.height = '400px';
                 weatherBox.style.display = 'none';
@@ -68,7 +65,7 @@ search.addEventListener('click', () => {
                     image.src = '';
             }
 
-            temperature.innerHTML = `${parseInt((json.main.temp) - 273 )}<span>°C</span>`;
+            temperature.innerHTML = `${parseInt(json.main.temp - 273)}<span>°C</span>`;
             description.innerHTML = `${json.weather[0].description}`;
             humidity.innerHTML = `${json.main.humidity} %`;
             wind.innerHTML = `${parseInt(json.wind.speed)} Km/h`;
@@ -79,9 +76,13 @@ search.addEventListener('click', () => {
             weatherDetails.classList.add('fadeIn');
             ajustarAlturaContainer();
             window.addEventListener('resize', ajustarAlturaContainer);
-
         });
+}
 
+search.addEventListener('click', enterSearch);
 
-
+searchInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        enterSearch();
+    }
 });
