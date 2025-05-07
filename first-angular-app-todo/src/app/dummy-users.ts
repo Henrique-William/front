@@ -1,4 +1,3 @@
-
 export const DUMMY_USERS = [
     {
       id: 'u1',
